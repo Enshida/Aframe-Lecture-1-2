@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precision Lighting Using the A-Frame Inspector</title>
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+</head>
+<body>
+  <a-scene>
+    <!-- Asset Management System -->
+    <a-assets>
+      <img id="floor" src="assets/floor-1024.jpg">
+      <a-asset-item id="tl" src="assets/traffic-light/traffic-light.gltf"></a-asset-item>
+      <a-asset-item id="ssl" src="assets/suburban-street-lamp/suburban-street-lamp.gltf"></a-asset-item>
+    </a-assets>
+
+    <!-- Custom Light | Ambient -->
+    <a-entity light="type: ambient; intensity: 0.2"></a-entity>
+
+    <!-- Custom Light | Directional -->
+    <a-entity light="type: directional; intensity: 0.2" position="-0.5 1 1"></a-entity>
+
+    <!-- Sky -->
+    <a-sky color="#212121"></a-sky>
+
+    <!-- Ground -->
+    <a-plane src="#floor" rotation="-90 0 0" scale="5 5 1" repeat="2 2"></a-plane>
+
+    <!-- Camera -->
+    <a-entity position="0 0 3">
+      <a-camera></a-camera>
+    </a-entity>
+
+    <!-- Your 3D Model 01 | Traffic Light -->
+    <a-entity gltf-model="#tl" position="-1 0.1 0" scale="0.7 0.7 0.7"></a-entity>
+
+    <!-- Your 3D Model 02 | Suburban Street Lamp -->
+    <a-entity gltf-model="#ssl" position="2 1.2 0" rotation="0 180 0"></a-entity>
+
+    <!-- Step 2: press CTRL + ALT + I to open the A-Frame Inspector.
+         Steps 3-5: lights added in the Inspector, then copied back with the </> "Copy entity HTML" button -->
+
+    <!-- Red Light (traffic light) -->
+    <a-entity id="Red-Light" position="-0.642 1.710 0.144" light="color: #cc0000; distance: 0.2; intensity: 4; type: point"></a-entity>
+
+    <!-- Light Bulb (street lamp) -->
+    <a-entity id="Light-Bulb" position="0.963 2.00326 0.002" light="color: #FFCC00; distance: 2; intensity: 4; type: point; decay: 2"></a-entity>
+
+    <!-- Light Cone (street lamp spot light, pointing down) -->
+    <a-entity id="Light-Cone" position="0.97107 1.55284 0.0224" light="color: #FFCC00; intensity: 2; type: spot; decay: 2; angle: 45; penumbra: 0.3" rotation="-90 0 0"></a-entity>
+  </a-scene>
+</body>
+</html>

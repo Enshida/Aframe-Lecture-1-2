@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customizing the Sky and Virtual Environment in A-Frame</title>
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+</head>
+<body>
+  <a-scene>
+    <!-- Asset Management System -->
+    <a-assets>
+      <img id="floor" src="assets/floor-diff.jpg">
+      <img id="floor-NRM" src="assets/floor-nor.jpg">
+      <img id="floor-ao" src="assets/floor-ao.jpg">
+      <img id="clear-sunny-sky" src="assets/clear-sunny-sky.jpg">
+      <img id="360-panorama" src="assets/360-image.jpg">
+    </a-assets>
+
+    <!-- Step 1: sky, rotated to align the sun with the lighting -->
+    <a-sky src="#clear-sunny-sky" rotation="0 64 0"></a-sky>
+
+    <!-- Step 2: ground extended to the 10,000 m sky -->
+    <a-plane material="color: #FFFFFF; src: #floor; repeat: 5 5; normal-map: #floor-NRM; normal-texture-repeat: 5 5; ambient-occlusion-map: #floor-ao; roughness: 0.9"
+             position="0 0 0" rotation="-90 0 0" scale="10000 10000 1"></a-plane>
+
+    <!-- Step 3 (alternative): cartoon-style ground. Replace the plane above with:
+    <a-plane material="color: #00AA00; shader: flat" rotation="-90 0 0" scale="10000 10000 1"></a-plane> -->
+
+    <!-- Step 4 (alternative): 360 panorama instead of sky + ground. Remove the sky and ground, then use:
+    <a-sky src="#360-panorama"></a-sky> -->
+  </a-scene>
+</body>
+</html>

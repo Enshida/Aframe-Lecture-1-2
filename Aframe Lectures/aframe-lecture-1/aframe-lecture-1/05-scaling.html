@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaling and Reflecting Entities</title>
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+</head>
+<body>
+  <a-scene>
+    <!-- Reflect the parent on X and stretch Z; the child inherits (relative scaling) -->
+    <a-box color="#689F38" width="4" height="2" depth="0.2" position="0 1 -7" rotation="90 0 0" scale="-1 1 2">
+      <a-circle color="#333333" side="double" position="2 0 0" rotation="90 0 0"></a-circle>
+    </a-box>
+    <!-- Basic scaling: doubles size in X and Y. Try scale="-1 1 1" to mirror it -->
+    <a-circle color="#FFC107" side="double" position="-2 1 -8" scale="2 2 1"></a-circle>
+    <!-- Cylinder (camera sits inside it) -->
+    <a-cylinder color="#616161" height="2" radius="2" segments-radial="6" open-ended="true" side="double" position="0 1 0" rotation="0 -90 90" scale="2 2 2"></a-cylinder>
+  </a-scene>
+</body>
+</html>

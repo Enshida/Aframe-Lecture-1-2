@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creating 3D Objects with A-Frame Primitives</title>
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+</head>
+<body>
+  <a-scene>
+    <!-- Green wall -->
+    <a-box color="#689F38" width="7" height="2.5" depth="0.5" position="0 1.25 -6"></a-box>
+    <!-- Hexagonal open-ended cylinder -->
+    <a-cylinder color="#616161" height="2" radius="2" segments-radial="6" open-ended="true" side="double" position="0 1 -3"></a-cylinder>
+  </a-scene>
+</body>
+</html>
